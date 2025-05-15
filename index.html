@@ -13,41 +13,48 @@
 <body>
     <div id="main">
         <div id="header">
-
-
-            <div id="logo-farmaa">
-                <div>
-                    <a href="./index.html"><img src="./entity/atom (1).svg" width="65px" height="50px" alt="فارما" title="Farmaa">
-                    </a>
+            <div class="header-top">
+             
+              <div class="menu-toggle" onclick="toggleMenu()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+              </div>
+          
+             
+              <div id="logo-farmaa">
+                <a href="./index.html">
+                  <img src="./entity/atom (1).svg" width="65px" height="50px" alt="فارما" title="Farmaa">
+                </a>
+                <a href="./index.html" title="Farmaa"><strong>فارما</strong></a>
+              </div>
+          
+             
+              <div class="auth-box">
+                <div v-if="status">
+                  <a href="./sign_up.html" title="Sign up" id="sign-up">
+                    <img style="margin: 0 5px;" src="./entity/user.svg" width="17px" height="17px">ورود / ثبت نام
+                  </a>
                 </div>
-                <div>
-                    <a href="./index.html" title="Farmaa"><strong>فارما</strong></a>
+                <div class="username" v-else>
+                  <a href="./user_page.html" title="User page">
+                    <b>{{username}}</b>
+                  </a>
+                  <img src="./entity/user.svg" alt="user" width="25" height="25">
                 </div>
-                
+              </div>
             </div>
-
-            <div id="menu-bar">
-                <div id="menu-bar-button">
-                    <a href="./my_form.html"><span title="Myforms" class="bar-keys">فرم های من</span></a>
-                    <a href="./guid.html"><span title="Items" class="bar-keys">راهنمای استفاده</span></a>
-                    <a href="./aboutUs.html"><span title="About us" class="bar-keys">درباره ما</span></a>
-                </div>
-                
-                <div>
-                    <div v-if="status">
-                        <a href="./sign_up.html" title="Sign up" id="sign-up"><img style="margin: 0 5px;" src="./entity/user.svg" width="17px" height="17px">ورود / ثبت نام</a>
-                    </div>
-                    <div class="username" v-else>
-                        <a href="./user_page.html" title="User page">
-                            <b>
-                                {{username}} 
-                            </b>
-                        </a>
-                        <img src="./entity/user.svg" alt="user" width="25" height="25">
-                    </div>
-                </div>
+          
+           
+            <div id="menu-bar-button">
+              <a href="./my_form.html"><span title="Myforms" class="bar-keys">فرم های من</span></a>
+              <a href="./guid.html"><span title="Items" class="bar-keys">راهنمای استفاده</span></a>
+              <a href="./aboutUs.html"><span title="About us" class="bar-keys">درباره ما</span></a>
             </div>
+          </div>
+          
         </div>
+        
         <div id="farmaa-welcome">
             <h1>
                 آسان ترین راه<br>
@@ -238,7 +245,13 @@
           © 2025 Farmaa.ir | تمام حقوق محفوظ است
         </div>
       </footer>
-
+      <script>
+        function toggleMenu() {
+          const menu = document.getElementById("menu-bar-button");
+          menu.classList.toggle("active");
+        }
+      </script>
+      
        
 </body>
 <script src="./main.js"></script>

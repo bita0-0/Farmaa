@@ -1,4 +1,3 @@
-
 const {createApp} = Vue 
 
 createApp({
@@ -56,7 +55,7 @@ createApp({
                 {
                     title : 'امضا',
                     value : '',
-                    type : 'signeture'
+                    type : 'signature' 
                 }
             ],
             FormName: 'فرم',
@@ -70,10 +69,7 @@ createApp({
         }        
     },
     methods:{
-
-
         async sendData(){
-
             let activeFields = []
 
             if(this.temp1){
@@ -97,15 +93,16 @@ createApp({
             }
 
             const id = localStorage.getItem('formId')
+            let serverUrl = ''
             if(this.apiUrl && id){
-                var serverUrl = `/api/form/${id}`
+                serverUrl = `/api/form/${id}`
             }else{
-                var serverUrl = '/api/form'
+                serverUrl = '/api/form'
             }
             
             try{
                 const response = await fetch(serverUrl,{
-                    method: this.apiUrl?'PUT': 'POST',
+                    method: this.apiUrl ? 'PUT' : 'POST',
                     headers: {
                         'Content-type':'application/json',
                         'Authorization': `Bearer ${token}`
@@ -123,7 +120,6 @@ createApp({
 
                 window.location.href = './my_form'
                 alert('فرم با موفقیت ذخیره شد')
-
                 
             }catch(error){
                 console.log('error:',error);
@@ -157,7 +153,7 @@ createApp({
                 case 'date':
                     base.value = {
                         calander : '',
-                        time :''
+                        time : ''
                     }
                     break
                 case 'info':
@@ -218,7 +214,7 @@ createApp({
                     'متن': 'text',
                     'آدرس': 'address',
                     'فایل': 'file',
-                    'امضا': 'signeture'
+                    'امضا': 'signature'   
                 }
 
                 const type = typeMap[this.data_draged]

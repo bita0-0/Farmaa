@@ -1,44 +1,45 @@
 @font-face {
-    font-family: vazir ;
+    font-family: vazir;
     src: url(./entity/font/Vazir.eot);
     src: url(./entity/font/Vazir.ttf),
-    url(./entity/font/Vazir.woff),
-    url(./entity/font/Vazir.woff2);  
+         url(./entity/font/Vazir.woff),
+         url(./entity/font/Vazir.woff2);  
 }
 
-
-body{
+body {
     font-family: vazir;
     margin: 0;
     direction: rtl;
     background-color: #eee;
 }
 
-#main{
+#main {
     margin-bottom: 3rem;
 }
 
-
-#header{
+/* ساختار کلی هدر */
+#header {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     padding: 1.5rem;
     margin: 0.5rem;
     font-size: 17px;
+    justify-content: space-between;
+    position: relative;
 }
 
-#logo-farmaa{
+#logo-farmaa {
     display: flex;
     align-items: center;
 }
 
-a{
+a {
     text-decoration: none;
     color: #000;
 }
 
-.username{
+.username {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -48,62 +49,61 @@ a{
     border-radius: 15px;
 }
 
-
-#logo-farmaa  strong{
+#logo-farmaa strong {
     font-size: 45px;
-    text-decoration: bold;
+    font-weight: bold;
 }
-#menu-bar{
+
+#menu-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 90%;
 }
 
-#menu-bar-button{
+#menu-bar-button {
     display: flex;
     width: 60%;
-    margin-right:10px ;
+    margin-right: 10px;
+    gap: 10px;
 }
 
-#menu-bar-button a:hover{
+#menu-bar-button a:hover {
     border-bottom: 1px solid #999;
 }
 
-#sign-up{
+#sign-up {
     float: left;
-    margin:22px ;
+    margin: 22px;
     border-radius: 20px;
     padding: 10px 30px;
     background-color: #ead21dcb;
 }
 
-.bar-keys{
+.bar-keys {
     width: fit-content;
     margin: 20px;
     padding: 10px 20px;
 }
 
-h1,h2{
+h1, h2 {
     display: inline-block;
 }
 
-h1,h2,p{
+h1, h2, p {
     margin: 18px 0;
     padding: 15px 0;
 }
 
-.farmaa-image , #farmaa-welcome {
+.farmaa-image, #farmaa-welcome {
     display: inline-block;
 }
 
-#farmaa-welcome{
+#farmaa-welcome {
     margin: 30px 150px 30px 60px;
 }
 
-
-
-.images{
+.images {
     border-radius: 15px;
     box-shadow: 8px 8px 5px 1px #999;
     margin: 50px 80px 30px 10px;
@@ -111,7 +111,7 @@ h1,h2,p{
     height: 400px;
 }
 
-#start-job{
+#start-job {
     background-color: #ead21dcb;
     text-decoration: none;
     padding: 10px 30px; 
@@ -119,135 +119,297 @@ h1,h2,p{
     color: #000;
 }
 
-#farmaa-property{
+#farmaa-property {
     background-color: rgba(4, 4, 64, 0.811);
     color: white;
     margin: 10px 0 0 0;
 }
 
-
-#farmaa-property div h2,#farmaa-goals div h2{
+#farmaa-property div h2,
+#farmaa-goals div h2 {
     text-align: center;
     display: block;
     margin: 0;
     padding: 16px;
 }
 
-.description{
+.description {
     display: inline-table;
     width: fit-content;
     padding: 13px;
     margin: 0 80px;
 }
 
-#farmaa-goals{
-    background-color:rgb(236, 232, 217);
+#farmaa-goals {
+    background-color: rgb(236, 232, 217);
 }
 
-
-.center{
+.center {
     text-align: center;
 }
-.display{
+
+.display {
     display: inline-block;
     margin: 30px 130px 90px 130px;
     padding: 10px;
 }
 
-#farmaa-future{
+#farmaa-future {
     background-image: url(./entity/back.png);
     background-repeat: no-repeat;
     background-size: cover;
     height: 500px;
 }
 
-.future-icon{
+.future-icon {
     display: block;
 }
 
-
-#text-future{
+#text-future {
     float: left;
-    margin: 100px 0 50px 200px ;
+    margin: 100px 0 50px 200px;
     padding: 10px;
 }
 
-footer{
-    background-color:rgb(236, 232, 217);
+footer {
+    background-color: rgb(236, 232, 217);
     padding: 20px;
 }
 
-footer strong{
+footer strong {
     background-color: #ead21dcb;
     padding: 8px;
     border-radius: 10px;
 }
 
-#footer-section{
+#footer-section {
     padding: 50px 70px;
     display: flex;
     flex-wrap: wrap;
     gap: 3rem;
-    margin-top:2rem;
-
+    margin-top: 2rem;
 }
 
-.footer-box{
+.footer-box {
     min-width: 150px;
 }
 
-.entity-footer{
+.entity-footer {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-
-#footer-section a:hover{
+#footer-section a:hover {
     text-decoration: underline;
 }
 
-#none-dec a:hover{
+#none-dec a:hover {
     text-decoration: none;
 }
 
-.footer-box a{
+.footer-box a {
     padding: 3px;
     text-decoration: none;
 }
 
-#end-law{
+#end-law {
     margin-top: 2rem;
     border-top: 1px solid #ddd;
-    padding-top:1rem ;
+    padding-top: 1rem;
     text-align: center; 
     font-size: small;
 }
 
 
-@media (max-width: 768px) {
-    body{
+
+
+@media screen and (max-width: 768px) {
+    body {
         font-size: 14px;
     }
-    #main{
+
+    #main {
         margin-bottom: 2rem;
         padding: 0 1rem;
+        flex-direction: column;
+        align-items: center;
     }
-}
 
-@media (max-width: 360px){
-    body{
-        font-size: 13px;
+    #header {
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: #fffce3a1;
+        width: 85%;
+        position: relative;
+        overflow: visible;
     }
-    #main{
+  
+    .header-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        position: relative;
+        padding: 0.5rem 1rem;
+    }
+
+    #logo-farmaa {
+        position: absolute;
+        left: 60%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        order: 2;
+      }
+
+    #logo-farmaa a {
+        text-decoration: none;
+        color: #000;
+        font-weight: bold;
+        font-size: 1.1rem;
+        
+    }
+    #logo-farmaa strong {
+        font-size: 45px;
+        font-weight: bold;
+        display: none;
+    }
+    .auth-box {
+        order: 3; 
+        margin-left: 0;
+      }
+      .auth-box #sign-up {
+        font-size: 0.9rem;
+        color: #000;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; 
+      }
+
+      .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+        padding: 5px;
+        order: 1; 
+      }
+
+    .menu-toggle .bar {
+        width: 25px;
+        height: 3px;
+        background-color: #000;
+        border-radius: 5px;
+    }
+
+    #menu-bar-button {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width:80%;
+        flex-direction: column;
+        gap: 10px;
+        background-color: #fff;
+        padding: 1rem 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        border-radius: 0 0 12px 12px;
+        box-sizing: border-box;
+    }
+
+    #menu-bar-button.active {
+        display: flex;
+    }
+
+    .bar-keys {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+        font-weight: bold;
+        color: #000;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+
+    .bar-keys:hover {
+        background-color: #f1f1f1;
+    }
+
+    #sign-up {
+        display: block;
+        margin: 10 auto;
+        text-align: center;
+        font-size: 0.95rem;
+        color: #000;
+        margin-left: auto;
+    }
+
+    .username {
+        margin: 10px auto;
+        text-align: center;
+        font-size: 0.95rem;
+    }
+
+    .images {
+        width: 90% !important;
+        height: auto !important;
+        margin: 1rem auto;
+    }
+
+    #farmaa-welcome {
+        margin: 0;
+        padding: 1rem;
+        text-align: center;
+    }
+    #farmaa-future {
+        background-image: linear-gradient(135deg, orange, white) !important;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 500px; 
+      }
+    }
+    .description {
+        display: block;
+        width: 90%;
+        margin: 1rem auto;
+        text-align: center;
+    }
+
+    .display {
+        margin: 1rem auto;
+    }
+
+    #text-future {
+        float: none;
+        margin: 2rem 1rem;
+        padding: 0;
+        text-align: center;
+    }
+
+    #footer-section {
+        flex-direction: column;
+        padding: 1rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-box {
+        margin-bottom: 1rem;
+    }
+
+
+@media (max-width: 360px) {
+    body {
+        font-size: 13px;
+        width: 100%;
+    }
+
+    #main {
         margin-bottom: 1.5rem;
         padding: 0 0.5rem;
     }
-
 }
-
-
-
-
-
-

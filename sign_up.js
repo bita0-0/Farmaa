@@ -1,82 +1,57 @@
-
-const {createApp} = Vue
+const { createApp } = Vue;
 
 createApp({
-    data(){
-        return{
-            userData: {
-                username: '',
-                email: '',
-                password: ''
-            },
-            tuggle_signUp_past : false,
-            oldUser:{
-                email : '',
-                password : ''
-            }
-        }
+  data() {
+    return {
+      userData: { username: '', email: '', password: '' },
+      oldUser: { email: '', password: '' },
+      tuggle_signUp_past: false
+    };
+  },
+  methods: {
+    sendUser(e) {
+      e.preventDefault();
+
+      let users = JSON.parse(localStorage.getItem('users') || '[]');
+
+    
+      const exists = users.find(u => u.email === this.userData.email);
+      if (exists) {
+        alert('این ایمیل قبلاً ثبت شده است.');
+        return;
+      }
+
+      users.push(this.userData);
+      localStorage.setItem('users', JSON.stringify(users));
+      localStorage.setItem('token', 'dummy_token'); 
+      localStorage.setItem('username', this.userData.username);
+
+      window.location.href = './my_form.html';
     },
-    methods:{
 
-        async sendUser(e){
-            e.preventDefault()
-            try{
-                const response = await fetch('/api/userData',{
-                    method: 'POST',
-                    headers:{
-                        'Content-type':'application/json'
-                    },
-                    body: JSON.stringify(this.userData)
-                })
+    loginUser(e) {
+      e.preventDefault();
 
-                if(!response.ok){
-                    throw new Error('کاربر قبلا ثبت نام کرده است ')
-                }
-                const result = await response.json()
-                
-                localStorage.setItem('token',result.token)
-                localStorage.setItem('username', result.username)
+      let users = JSON.parse(localStorage.getItem('users') || '[]');
+      const user = users.find(u => u.email === this.oldUser.email && u.password === this.oldUser.password);
 
-                window.location.replace('./my_form')
-            }catch(error){
-                console.log(error);
-                alert('خطا در ثبت اطلاعات')
-            }
-        },
+      if (!user) {
+        alert('ایمیل یا رمز عبور اشتباه است.');
+        return;
+      }
 
-        async loginUser(e){
-            e.preventDefault()
+      localStorage.setItem('token', 'dummy_token');
+      localStorage.setItem('username', user.username);
 
-            try{
-                const response = await fetch('/api/login',{
-                    method: 'POST',
-                    headers: {
-                        'Content-type':'application/json'
-                    },
-                    body: JSON.stringify(this.oldUser)
-                })
-    
-                if(! response.ok){
-                    throw new Error('ورود ناموفق')
-                }
-    
-                const result = await response.json()
-    
-                localStorage.setItem('token', result.token)
-                localStorage.setItem('username',result.username)
-    
-                window.location.replace('./my_form')
+      window.location.href = './my_form.html';
+    },
 
-            }catch(error){
-                console.log(error);
-                alert('ایمیل یا رمز عبور اشتباه است')
-            }
-            
-        },
+    showLogin() {
+      this.tuggle_signUp_past = true;
+    },
 
-        showFunction(){
-            this.tuggle_signUp_past = true
-        }
-
+    showSignUp() {
+      this.tuggle_signUp_past = false;
     }
-}).mount('#sign-up')
+  }
+}).mount('#sign-up');
